@@ -1,0 +1,21 @@
+{
+    "posts": [{
+            "title": "What's useEffect in React",
+            "author": "Tran Dang Khoi",
+            "id": 39
+        },
+        {
+            "title": "What's useState in React",
+            "author": "Tran Dang Khoi",
+            "id": 40
+        }
+    ],
+    "comments": [{
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+    }],
+    "profile": {
+        "name": "typicode"
+    }
+}
