@@ -27,6 +27,8 @@ input[type="number"] {
     outline: none;
 }
 
+
+
 .course-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -53,21 +55,65 @@ input[type="number"] {
     position: relative;
 }
 
-.course-remove {
+.course-image::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 3;
+    border-radius: 8px;
+}
+
+.course-image:hover .course-image::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.course-image:hover .course-adjust {
+    opacity: 1;
+    visibility: visible;
+}
+
+.course-image .course-adjust {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.course-remove,
+.course-edit {
     display: inline-block;
-    padding: 10px;
+    padding: 15px;
+    font-size: 15px;
     cursor: pointer;
-    background: #FF6651;
     color: white;
     outline: none;
     border: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
-.course-remove i {
+.course-edit {
+    background: #999;
+}
+
+.course-remove {
+    background: #FF6651;
+
+}
+
+.course-remove i,
+.course-edit i {
     pointer-events: none;
 }
 

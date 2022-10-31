@@ -1,31 +1,15 @@
 {
-  "posts": [
-    {
-      "title": "What's useEffect in React",
-      "author": "Tran Dang Khoi",
-      "id": 39
-    },
-    {
-      "title": "What's useState in React",
-      "author": "Tran Dang Khoi",
-      "id": 40
-    },
-    {
-      "title": "Who's John Cena?",
-      "author": "Tran Dang Khoi",
-      "id": 41
-    }
-  ],
+  "posts": [],
   "courses": [
     {
-      "image": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "title": "React Course",
+      "image": "https://upload.wikimedia.org/wikipedia/vi/a/a7/Nodejs_logo_light.png",
+      "title": "NodeJS Course",
       "author": "Khoi",
       "rating": 5,
-      "price": 1000000,
+      "price": 100032,
       "bestSeller": true,
-      "buyAmount": 2141,
-      "id": 2
+      "buyAmount": 4214,
+      "id": 1
     }
   ],
   "comments": [],

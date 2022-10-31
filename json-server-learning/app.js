@@ -18,6 +18,8 @@ Object.prototype.vietNamCurrencyConvert = function () {
 const endpoint = "http://localhost:3000/courses";
 const formPost = document.querySelector(".form-post");
 const courseList = document.querySelector(".course-list");
+const formSubmit = document.querySelector(".form-submit");
+let updateId = null;
 async function addCourse({
   title,
   author,
@@ -51,14 +53,25 @@ async function addCourse({
   }
 }
 
+async function getSingleCourse(id) {
+  const res = await fetch(`${endpoint}/${id}`);
+  const data = await res.json();
+  return data;
+}
+
 function renderItem(item) {
   const courseTemplate = `
   <div class="course-item">
             <div class="course-image">
                 <img src="${item.image}" alt="" />
+                <div class="course-adjust">
+                <button class="course-edit" data-id=${item.id}>
+                <i class="fa-solid fa-pen-to-square"></i>
+                </button>
                 <button class="course-remove" data-id=${item.id}>
                 <i class="fa-solid fa-xmark"></i>
                 </button>
+                </div>
             </div>
             <div class="course-content">
                 <div class="course-title">
@@ -107,14 +120,51 @@ formPost.addEventListener("submit", async function (e) {
     bestSeller: this.elements["bestSeller"].checked,
     buyAmount: +this.elements["buyAmount"].value,
   };
-  await addCourse(course);
+  updateId
+    ? await updateCourse({ id: updateId, ...course })
+    : await addCourse(course);
   this.reset();
   await getCourses();
+  formSubmit.textContent = "Add course";
+  updateId = null;
 });
 
 async function deleteCourse(id) {
+  try {
+    await fetch(`${endpoint}/${id}`, {
+      method: "DELETE",
+    });
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+async function updateCourse({
+  id,
+  title,
+  author,
+  image,
+  rating,
+  price,
+  bestSeller,
+  buyAmount,
+}) {
+  console.log(id);
   await fetch(`${endpoint}/${id}`, {
-    method: "DELETE",
+    method: "PUT",
+    body: JSON.stringify({
+      image,
+      title,
+      author,
+      rating,
+      price,
+      bestSeller,
+      buyAmount,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
   });
 }
 
@@ -122,7 +172,20 @@ courseList.addEventListener("click", async function (e) {
   if (e.target.matches(".course-remove")) {
     const id = +e.target.dataset.id;
     await deleteCourse(id);
-    await getCourses();
+  } else if (e.target.matches(".course-edit")) {
+    e.stopPropagation();
+    const id = +e.target.dataset.id;
+    const data = await getSingleCourse(id);
+    formPost.elements["image"].value = data.image;
+    formPost.elements["author"].value = data.author;
+    formPost.elements["title"].value = data.title;
+    formPost.elements["rating"].value = data.rating;
+    formPost.elements["price"].value = data.price;
+    formPost.elements["buyAmount"].value = data.buyAmount;
+    formPost.elements["bestSeller"].checked = data.bestSeller;
+    formSubmit.textContent = "Update course";
+    updateId = id;
   }
+  await getCourses();
 });
 getCourses();

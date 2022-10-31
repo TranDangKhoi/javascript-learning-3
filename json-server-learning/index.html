@@ -13,17 +13,17 @@
 
 <body>
     <form class="form-post" autocomplete="off" method="post">
-        <input type="text" name="image" placeholder="Enter image's url" />
-        <input type="text" name="title" placeholder="Enter course's title" />
-        <input type="text" name="author" placeholder="Enter author's name" />
-        <input type="text" name="rating" placeholder="Enter course's rating" />
-        <input type="text" name="price" min="100" placeholder="Enter course's price" />
+        <input type="text" name="image" placeholder="Enter image's url" required />
+        <input type="text" name="title" placeholder="Enter course's title" required />
+        <input type="text" name="author" placeholder="Enter author's name" required />
+        <input type="text" name="rating" placeholder="Enter course's rating" required />
+        <input type="text" name="price" min="100" placeholder="Enter course's price" required />
         <div class="form-group">
             <label for="best-seller">Is this course a best seller?</label>
             <input type="checkbox" name="bestSeller" id="best-seller" />
         </div>
-        <input type="number" name="buyAmount" placeholder="How many people bought the course?" />
-        <button type="submit">Add course</button>
+        <input type="number" name="buyAmount" placeholder="How many people bought the course?" required />
+        <button type="submit" class="form-submit">Add course</button>
     </form>
     <div class="course-list">
 
