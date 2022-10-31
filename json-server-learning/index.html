@@ -2,20 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD with JSON Server</title>
+    <script src="https://kit.fontawesome.com/5e5aa9c9c8.js" crossorigin=anonymous></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <form class="form-post" autocomplete="off" method="post">
-        <input type="text" name="title" placeholder="Enter your title">
-        <input type="text" name="author" placeholder="Enter your author">
-        <button type="submit">Add new posts</button>
+        <input type="text" name="image" placeholder="Enter image's url" />
+        <input type="text" name="title" placeholder="Enter course's title" />
+        <input type="text" name="author" placeholder="Enter author's name" />
+        <input type="text" name="rating" placeholder="Enter course's rating" />
+        <input type="text" name="price" min="100" placeholder="Enter course's price" />
+        <div class="form-group">
+            <label for="best-seller">Is this course a best seller?</label>
+            <input type="checkbox" name="bestSeller" id="best-seller" />
+        </div>
+        <input type="number" name="buyAmount" placeholder="How many people bought the course?" />
+        <button type="submit">Add course</button>
     </form>
+    <div class="course-list">
+
+    </div>
     <script src="app.js"></script>
 </body>
 

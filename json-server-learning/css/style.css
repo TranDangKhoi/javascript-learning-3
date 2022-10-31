@@ -1,15 +1,22 @@
 .form-post {
-    display: flex;
-    justify-content: center;
-    gap: 0 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
     margin: 2rem auto;
+    padding: 50px;
 }
 
-.form-post input {
+.form-post input[type="text"],
+input[type="number"] {
     padding: 10px 15px;
     border: 1px solid #eeeeee;
     border-radius: 8px;
     outline: none;
+}
+
+.form-post input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 }
 
 .form-post button {
@@ -18,4 +25,73 @@
     border: 0;
     border-radius: 8px;
     outline: none;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 25px;
+}
+
+.course-item {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.course-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    font-size: 18px;
+}
+
+.course-image {
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.course-remove {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    background: #FF6651;
+    color: white;
+    outline: none;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 5px
+}
+
+.course-remove i {
+    pointer-events: none;
+}
+
+.course-meta {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.course-author {
+    color: gray;
+    margin-block: 10px;
+}
+
+.course-best-seller {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #F62682;
+    background: rgba(246, 38, 132, 0.2);
+}
+
+.course-enroll {
+    color: #999;
+    font-size: 13px;
+    font-weight: 300;
+
 }
